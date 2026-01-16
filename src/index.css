@@ -1,0 +1,51 @@
+/* Global reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  background: #f7f7f7;
+  color: #222;
+}
+
+/* App layout */
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Passport */
+.passport {
+  background: #fdf6e3; /* passport paper color */
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  border: 1px solid #e0d8c3;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+
+
+.passport ul {
+  list-style: none;
+}
+
+.passport li {
+  padding: 6px 0;
+}
+
+/* Feed */
+.feed {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.feed button {
+  margin-left: 8px;
+}
