@@ -1,33 +1,37 @@
+import { recipes } from "../../data/recipes";
 import { usePassport } from "../../context/PassportContext";
-import RecipeCard from "../RecipeCard";
-import { recipes } from "../../data/recipes.mock";
+import RecipeCard from "../Recipe/RecipeCard";
 
 export default function Feed() {
-  const { lockedCountries, startFlight, completeFlight } = usePassport();
+  const { unlockedCountries } = usePassport();
+
+  const unlockedRecipes = recipes.filter(recipe =>
+    unlockedCountries.includes(recipe.country)
+  );
+
+  const lockedRecipes = recipes.filter(
+    recipe => !unlockedCountries.includes(recipe.country)
+  );
 
   return (
-    <div className="feed">
-      <h3>Global Feed</h3>
+    <section>
+      <h2>Global Feed</h2>
 
-      {/* Recipe cards */}
-      <div style={{ display: "grid", gap: 16 }}>
-        {recipes.map((recipe) => (
-          <RecipeCard key={recipe.id} recipe={recipe} />
-        ))}
-      </div>
-
-      {/* Temporary unlock controls */}
-      {lockedCountries.map((country) => (
-        <div key={country.code}>
-          🔒 {country.name}
-          <button onClick={() => startFlight(country.code)}>
-            Start Flight
-          </button>
-          <button onClick={completeFlight}>
-            Complete Trivia
-          </button>
-        </div>
+      {unlockedRecipes.map(recipe => (
+        <RecipeCard
+          key={recipe.id}
+          recipe={recipe}
+          locked={false}
+        />
       ))}
-    </div>
+
+      {lockedRecipes.map(recipe => (
+        <RecipeCard
+          key={recipe.id}
+          recipe={recipe}
+          locked={true}
+        />
+      ))}
+    </section>
   );
 }
