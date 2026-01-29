@@ -4,6 +4,8 @@ import RecipeCard from "../Recipe/RecipeCard";
 
 export default function Feed() {
   const { unlockedCountries } = usePassport();
+  console.log(unlockedCountries);
+
 
   const unlockedRecipes = recipes.filter(recipe =>
     unlockedCountries.includes(recipe.country)
