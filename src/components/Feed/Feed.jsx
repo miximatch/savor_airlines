@@ -1,4 +1,4 @@
-import { recipes } from "../../data/recipes";
+import { recipes } from "../../data/recipes.mock";
 import { usePassport } from "../../context/PassportContext";
 import RecipeCard from "../Recipe/RecipeCard";
 
