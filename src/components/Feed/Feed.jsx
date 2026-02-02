@@ -10,7 +10,7 @@ export default function Feed() {
   const unlockedRecipes = recipes.filter(recipe =>
     unlockedCountries.includes(recipe.country)
   );
-
+  
   const lockedRecipes = recipes.filter(
     recipe => !unlockedCountries.includes(recipe.country)
   );
