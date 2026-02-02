@@ -51,7 +51,7 @@ export function PassportProvider({ children }) {
     <PassportContext.Provider
       value={{
         countries,
-unlockedCountries: countries
+  unlockedCountries: countries
   .filter((c) => c.unlocked)
   .map((c) => c.name),
         lockedCountries: countries.filter((c) => !c.unlocked),
